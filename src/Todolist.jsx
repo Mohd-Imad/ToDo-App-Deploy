@@ -18,6 +18,7 @@ const Todolist = () => {
     setStore(newstore)
     setFormvalues({ todo: '', status: 'Pending' })
     SetDisable(false)
+    setEditFlag(false)
   }
   const deletehandler = (indexvalue) => {
     const filteredstore = store.filter((elem, index) => index !== indexvalue)
