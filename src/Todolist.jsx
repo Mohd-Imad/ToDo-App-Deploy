@@ -6,7 +6,7 @@ const Todolist = () => {
   const [store, setStore] = useState([])
   const [search, SetSearch] = useState('')
   const [disable, SetDisable] = useState(false)
-  const [editFlag,setEditFlag] = useState(false)
+  const [editFlag, setEditFlag] = useState(false)
 
   const changehandler = (e) => {
     setFormvalues({ ...formvalues, [e.target.name]: e.target.value })
@@ -18,7 +18,6 @@ const Todolist = () => {
     setStore(newstore)
     setFormvalues({ todo: '', status: 'Pending' })
     SetDisable(false)
-    setEditFlag(false)
   }
   const deletehandler = (indexvalue) => {
     const filteredstore = store.filter((elem, index) => index !== indexvalue)
@@ -50,8 +49,9 @@ const Todolist = () => {
                   <input type='text' className='form-control' name='todo' value={formvalues.todo} onChange={changehandler} placeholder='Enter Todo....' />
                 </div>
                 <div id="submit-button">
-                  {editFlag ? <button className='btn btn-warning' type='submit'>Edit</button> :<button className='btn btn-info' type='submit'>Add</button>}
-}
+                  {editFlag ? <button className='btn btn-warning' type='submit'>Edit</button>
+                    : <button className='btn btn-info' type='submit'>Add</button>
+                  }
                   {disable ? <div className='form-group' style={{ display: "inline-block" }}>
                     <select name='status' onChange={changehandler} className='form-control-lg'>
                       <option>Select Status</option>
@@ -68,7 +68,7 @@ const Todolist = () => {
 
           <div className=' mt-5 mb-3 d-md-flex align-items-center justify-content-center'>
             <button className='btn btn-outline-info mr-3' onClick={(e) => SetSearch(e.target.value)}>All tasks</button>
-            <button className='btn btn-outline-info mr-3' value='Pending'onClick={(e) => SetSearch(e.target.value)}>Pending</button>
+            <button className='btn btn-outline-info mr-3' value='Pending' onClick={(e) => SetSearch(e.target.value)}>Pending</button>
             <button className='btn btn-outline-info mr-3' value='Completed' onClick={(e) => SetSearch(e.target.value)}>Completed</button>
           </div>
           {Object.keys(store).length > 0 ? (<table className='table table-hover'>
