@@ -49,7 +49,7 @@ const Todolist = () => {
                   <input type='text' className='form-control' name='todo' value={formvalues.todo} onChange={changehandler} placeholder='Enter Todo....' />
                 </div>
                 <div id="submit-button">
-                  {editFlag ? <button className='btn btn-info' type='submit'>Add</button> :<button className='btn btn-warning' type='submit'>Edit</button>}
+                  {editFlag ? <button className='btn btn-warning' type='submit'>Edit</button> :<button className='btn btn-info' type='submit'>Add</button>}
 }
                   {disable ? <div className='form-group' style={{ display: "inline-block" }}>
                     <select name='status' onChange={changehandler} className='form-control-lg'>
